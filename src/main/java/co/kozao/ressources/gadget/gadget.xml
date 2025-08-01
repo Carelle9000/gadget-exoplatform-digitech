@@ -1,0 +1,4 @@
+<Module>
+  <ModulePrefs title="Mon Gadget eXo Personnalisé" author="Votre Nom" author_email="email@example.com" description="Gadget dashboard" />
+  <Content type="html" href="http://monserveur.com/frontend/index.html" />
+</Module>
