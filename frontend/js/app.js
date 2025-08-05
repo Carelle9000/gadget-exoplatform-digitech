@@ -1,4 +1,3 @@
-// Import modules/components
 import WelcomeMessage from './components/WelcomeMessage.js';
 import Quote from './components/Quote.js';
 import Weather from './components/Weather.js';
@@ -36,13 +35,11 @@ async function initDashboard() {
     } catch (weatherError) {
       console.error("Impossible d'afficher la météo:", weatherError);
       Weather.render(
-         'city-name',
-         'temperature',
-         'description',
-         'weather-icon',    
-         'error-message',
-         weatherData,
-         null,              // Pas de données météo
+        'city-name',
+        'temperature',
+        'description',
+        'error-message',
+        null,              // Pas de données météo
         `Erreur: ${weatherError.message}. Impossible de charger la météo.`
       );
     }
@@ -50,6 +47,12 @@ async function initDashboard() {
     // Documents récents
     const docs = await RecentDocs.getRecentDocuments(user.id);
     RecentDocs.render('docs-list', docs);
+
+    // Ajouter la classe fade-in au container principal une fois tout chargé
+    const gadget = document.getElementById('gadget-dashboard');
+    if (gadget) {
+      gadget.classList.add('fade-in');
+    }
 
   } catch (error) {
     console.error('Erreur lors de l\'initialisation du dashboard:', error);
@@ -64,4 +67,6 @@ async function initDashboard() {
 }
 
 // Lancer l'initialisation une seule fois après que le DOM soit prêt
-window.addEventListener('DOMContentLoaded', initDashboard);
+window.addEventListener('DOMContentLoaded', () => {
+  initDashboard();
+});
