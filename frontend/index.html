@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gadget Dashboard EXO</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#f6f8fa] font-sans min-h-screen">
+  <div class="max-w-5xl mx-auto mt-4" id="gadget-dashboard">
+    <!-- Container principal -->
+    <div class="bg-[#e9f0fa] rounded-xl shadow flex flex-col p-4">
+      <!-- Header : avatar + welcome + météo + date/heure -->
+      <div class="flex justify-between items-start">
+        <div class="flex flex-col">
+          <div class="flex items-center space-x-2 mb-2">
+            <div class="w-10 h-10 flex items-center justify-center rounded-full bg-[#ecf3fa]">
+              <!-- Avatar SVG (Heroicons user solid) -->
+              <i class="fa-solid fa-circle-user" style="color: #4361ee;"></i>
+            </div>
+            <div>
+              <h1 id="welcome-msg" class="text-lg font-bold text-[#212e3c]">Chargement...</h1>
+            </div>
+          </div>
+          <div id="welcome-subtext" class="text-[#697a8d] text-sm">...</div>
+        </div>
+        <div class="flex flex-col items-end space-y-0.5 bg-white/80 border rounded-lg px-3 py-2 shadow-sm">
+          <div class="flex items-center  px-3 py-1 rounded space-x-2 ">
+            <!-- Icône météo (Heroicons cloud) -->
+<i class="fa-solid fa-cloud-rain" style="color: #4361ee;"></i>
+            <!-- Informations météo -->
+            <span id="weather-icon" class="text-2xl"></span>
+            <span id="city-name" class="text-[#212e3c] font-medium">...</span>
+            <span id="temperature" class="text-[#8f9bb3] text-xs"></span>
+            <span id="description" class="text-[#8f9bb3] text-xs"></span>
+            <span id="error-message" class="text-[#8f9bb3] text-xs"></span>
+            
+          </div>
+          <div class="flex items-center space-x-2 mt-1">
+            <div class="bg-white/80 px-2 py-1 rounded text-[#212e3c] text-xs font-medium  flex items-center space-x-1">
+              <!-- Calendrier icon (Heroicons calendar) -->
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-[#4361ee]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                <line x1="16" y1="2" x2="16" y2="6" />
+                <line x1="8" y1="2" x2="8" y2="6" />
+                <line x1="3" y1="10" x2="21" y2="10" />
+              </svg>
+              <span id="current-date">...</span>
+            </div>
+            <div class="bg-white/80 px-2 py-1 rounded text-[#212e3c] text-xs font-medium  flex items-center space-x-1">
+              <!-- Horloge icon (Heroicons clock) -->
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-[#4361ee]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
+              </svg>
+              <span id="current-time">...</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section citation + documents -->
+      <div class="flex mt-4 gap-5 flex-col md:flex-row">
+        <div class="w-full bg-[#fffbe6] rounded-lg p-4 flex flex-col justify-between min-h-[130px]">
+          <div>
+            <span class="font-semibold text-[#a67c00] flex items-center mb-1">
+              <!-- Citation icon -->
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-[#a67c00] mr-1" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M10.293 15.707a1 1 0 010-1.414l7-7a1 1 0 00-1.414-1.414l-7 7a1 1 0 001.414 1.414z"/>
+              </svg>
+              Citation du jour
+            </span>
+            <blockquote id="quote" class="text-[#856404] italic mt-2">Chargement...</blockquote>
+          </div>
+          <div class="text-right text-[#a67c00] text-xs mt-2" id="quote-author">— </div>
+        </div>
+
+        <div class="w-full bg-white rounded-lg p-4 flex flex-col min-h-[130px] shadow border">
+          <div class="font-semibold text-[#4361ee] mb-2 flex items-center">
+            <!-- Documents icon (Heroicons document) -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-1 text-[#4361ee]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path d="M8 2a2 2 0 00-2 2v3h8V4a2 2 0 00-2-2H8z" />
+              <path d="M4 7v7a2 2 0 002 2h8a2 2 0 002-2V7H4zm2 2h3v3H6v-3zm5 0h3v3h-3v-3z"/>
+            </svg>
+            Documents récents
+          </div>
+          <ul id="docs-list" class="text-[#222f3e] text-sm mt-1 divide-y">
+            <!-- Javascript insérera les documents ici -->
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>
